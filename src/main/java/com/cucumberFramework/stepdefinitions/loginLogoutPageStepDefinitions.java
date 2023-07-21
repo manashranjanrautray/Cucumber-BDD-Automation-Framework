@@ -1,5 +1,7 @@
 package com.cucumberFramework.stepdefinitions;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -7,9 +9,9 @@ import com.cucumberFramework.helper.WaitHelper;
 import com.cucumberFramework.pageObjects.LoginLogoutPage;
 import com.cucumberFramework.testBase.TestBase;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 
 public class loginLogoutPageStepDefinitions extends TestBase {
@@ -26,7 +28,7 @@ public class loginLogoutPageStepDefinitions extends TestBase {
 	@Then("^I click on sign in button and wait for sign in page$")
 	public void i_click_on_sign_in_button_and_wait_for_sign_in_page() throws Throwable {
 		loginPage.clickSignInButton();
-		waitHelper.WaitForElement(loginPage.userName, 60);
+		waitHelper.WaitForElement(loginPage.userName, Duration.ofSeconds(60));
 	}
 
 	@Then("^I should see Sign In Page$")
@@ -42,7 +44,7 @@ public class loginLogoutPageStepDefinitions extends TestBase {
 	@When("^I Click on Continue button$")
 	public void i_Click_on_Continue_button() throws Throwable {
 		loginPage.clickContinueButton();
-		waitHelper.WaitForElement(loginPage.password, 60);
+		waitHelper.WaitForElement(loginPage.password, Duration.ofSeconds(60));
 	}
 
 	@When("^I enter password as \"([^\"]*)\"$")
@@ -63,7 +65,7 @@ public class loginLogoutPageStepDefinitions extends TestBase {
 	@When("^I Click on Sign out$")
 	public void i_Click_on_Sign_out() throws Throwable {
 	    loginPage.clickLogoutButton();
-	    waitHelper.WaitForElement(loginPage.userName, 60);
+	    waitHelper.WaitForElement(loginPage.userName, Duration.ofSeconds(60));
 	}
 
 	@Then("^I got log out from the application and land on sign in page$")

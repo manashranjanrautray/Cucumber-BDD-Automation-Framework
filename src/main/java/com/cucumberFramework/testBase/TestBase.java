@@ -6,11 +6,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.cucumberFramework.enums.Browsers;
 import com.cucumberFramework.enums.OS;
+import com.cucumberFramework.helper.LoggerHelper;
 
 
 public class TestBase {
 
 	public  static WebDriver driver;
+	public static LoggerHelper logger;
 
 	
 	public WebDriver selectBrowser(String browser) {

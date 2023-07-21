@@ -1,26 +1,20 @@
 package com.cucumberFramework.helper;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.slf4j.LoggerFactory;
 
 public class LoggerHelper {
 
-	private static boolean root=false;
-	
-	public static Logger getLogger(Class cls){
-		if(root){
-			return Logger.getLogger(cls);
-		}
-		PropertyConfigurator.configure("log4j.properties");
-		root = true;
-		return Logger.getLogger(cls);
+	private static org.slf4j.Logger logger = LoggerFactory.getLogger(LoggerHelper.class);
+
+	public void debugLog(String message) {
+		logger.debug(message);
 	}
-	
-	public static void main(String[] args) {
-		Logger log = LoggerHelper.getLogger(LoggerHelper.class);
-		log.info("I am test");
-		log.info("I am test");
-		log.info("I am test");
-				
+
+	public void infoLog(String message) {
+		logger.info(message);
+	}
+
+	public void errorLog(String message) {
+		logger.error(message);
 	}
 }
